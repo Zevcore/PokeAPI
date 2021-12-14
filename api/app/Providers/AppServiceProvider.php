@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(YourController::class, function ($app) {
+            return YourController::yourfunction();
+        });
     }
 
     /**
