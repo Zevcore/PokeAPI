@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pokemon;
+use App\Http\Resources\PokemonCollection;
 
 class PokemonsController extends Controller
 {
@@ -13,7 +15,7 @@ class PokemonsController extends Controller
      */
     public function index()
     {
-        
+        return PokemonCollection::collection(Pokemon::all());
     }
 
     /**
@@ -21,9 +23,9 @@ class PokemonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($request)
     {
-        //
+        dd($request);
     }
 
     /**
