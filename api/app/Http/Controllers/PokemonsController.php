@@ -15,7 +15,7 @@ class PokemonsController extends Controller
      */
     public function index()
     {
-        return PokemonCollection::collection(Pokemon::all());
+        return response(Pokemon::all(), 200);
     }
 
     /**
@@ -25,7 +25,7 @@ class PokemonsController extends Controller
      */
     public function create($request)
     {
-        dd($request);
+        //
     }
 
     /**
@@ -36,7 +36,16 @@ class PokemonsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pokemon = Pokemon::create([
+           'name' => $request->name,
+            'weight' => $request->weight,
+            'height' => $request->height,
+            'evolvesto' => $request->evolvesto,
+            'evolvesfrom' => $request->evolvesfrom,
+            'origin' => $request->origin
+        ]);
+
+        return response($pokemon, 200);
     }
 
     /**
@@ -47,7 +56,7 @@ class PokemonsController extends Controller
      */
     public function show($id)
     {
-        //
+        return PokemonCollection::collection(Pokemon::findOrFail($id));
     }
 
     /**
@@ -70,7 +79,18 @@ class PokemonsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pokemon = Pokemon::findOrFail($id);
+        $pokemon->update([
+            'name' => $request->name,
+            'weight' => $request->weight,
+            'height' => $request->height,
+            'evolvesto' => $request->evolvesto,
+            'evolvesfrom' => $request->evolvesfrom,
+            'origin' => $request->origin
+        ]);
+        $pokemon->save();
+
+        return response($pokemon, 200);
     }
 
     /**
@@ -81,6 +101,7 @@ class PokemonsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pokemon = Pokemon::find($id);
+        return response($pokemon->delete(), 200);
     }
 }

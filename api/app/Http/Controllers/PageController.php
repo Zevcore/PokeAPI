@@ -9,8 +9,4 @@ class PageController extends Controller
     public function index() {
         return view("welcome");
     }
-
-    public function docs() {
-        return view("docs");
-    }
 }

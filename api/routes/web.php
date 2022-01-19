@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\PokemonsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +16,3 @@ use App\Http\Controllers\PokemonsController;
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/docs', [PageController::class, 'docs'])->name('docs');
-Route::resource('pokemons', PokemonsController::class);

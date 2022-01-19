@@ -18,10 +18,9 @@ class CreatePokemonTable extends Migration
             $table->string("name");
             $table->integer("height");
             $table->integer("weight");
-            $table->string("abilities");
-            $table->string("forms");
-            $table->string("moves");
-            $table->string("image");
+            $table->string("evolvesto");
+            $table->string("evolvesfrom");
+            $table->string("origin");
             $table->timestamps();
         });
     }

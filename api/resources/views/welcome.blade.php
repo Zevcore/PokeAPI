@@ -23,8 +23,9 @@
     <div class="wrapper" style="display: flex; align-items: center; justify-content:center; height: 100vh;">
         <div class="container">
             <h1>API is working!</h1>
-            <form action="{{route('docs')}}" method="GET"><button type="submit" class="btn btn-dark">Docs</button></form>
         </div>
+        {{ var_dump($_SERVER['HTTP_HOST']) }}
+        {{ var_dump($_SERVER['SERVER_PORT']) }}
     </div>
 
 </body>

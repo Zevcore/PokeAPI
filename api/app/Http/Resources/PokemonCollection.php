@@ -15,12 +15,12 @@ class PokemonCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'height'=> $this->height,
-            'abilities' => $this->abilities,
-            'forms' => $this->forms,
-            'moves' => $this->moves,
-            'image' => $this->image,
+            'name' => $request->name,
+            'weight' => $request->weight,
+            'height' => $request->height,
+            'evolvesto' => $request->evolvesto,
+            'evolvesfrom' => $request->evolvesfrom,
+            'origin' => $request->origin
         ];
     }
 }
