@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d34d8900-da1d-4016-bcc4-30cfcc0f7f1d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/actions/requests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Aside/Aside.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Aside/Aside.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Aside/Aside.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Aside/Aside.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Main/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Main/Main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Main/Main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Sidebar/Sidebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Sidebar/Sidebar.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +193,7 @@
       <workItem from="1640153058462" duration="31000" />
       <workItem from="1642441197438" duration="1307000" />
       <workItem from="1642596325949" duration="6827000" />
-      <workItem from="1643284704271" duration="17984000" />
+      <workItem from="1643284704271" duration="20998000" />
     </task>
     <servers />
   </component>

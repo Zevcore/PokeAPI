@@ -1,17 +1,12 @@
 import {Component} from 'react';
 import './Sidebar.scss';
 import logo from "./pokeball.png";
+import Aside from "../Aside/Aside";
 
 class Sidebar extends Component {
 
     constructor(props) {
         super(props);
-
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick() {
-        return;
     }
 
     render() {
@@ -21,9 +16,6 @@ class Sidebar extends Component {
                     <img src={logo} alt="" />
                         <h1>pokeAPI</h1>
                 </header>
-                <form>
-                    <input type="text" className="search" placeholder="search" />
-                </form>
                 <ul>
                     <p>APIs</p>
                     <li>

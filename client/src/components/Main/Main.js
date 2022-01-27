@@ -71,41 +71,45 @@ class Main extends Component {
             <main className="main">
                 <h1>/pokemons <span>GET</span></h1>
 
-                <ul>
-                    <span>Pokemon list</span>
+                <div className="wrapper">
+                    <ul>
+                        <span>Pokemon list</span>
 
-                    {this.state.pokemons.length > 0 &&
-                        this.state.pokemons.map((pokemon) => (
-                            <li key={pokemon.id}>
-                                {pokemon.name}
-                                <button value={pokemon.id} onClick={this.deleteElement}>X</button>
-                                <button value={pokemon.id} onClick={this.fillUpdate}>E</button>
+                        {this.state.pokemons.length > 0 &&
+                            this.state.pokemons.map((pokemon) => (
+                                <li key={pokemon.id}>
+                                    {pokemon.name}
+                                    <div className="box">
+                                        <button className="delete" value={pokemon.id} onClick={this.deleteElement}>delete</button>
+                                        <button className="edit" value={pokemon.id} onClick={this.fillUpdate}>edit</button>
+                                    </div>
 
-                            </li>
-                        ))
-                    }
+                                </li>
+                            ))
+                        }
 
-                </ul>
+                    </ul>
 
-                <form className="crud" onSubmit={this.handleSubmit}>
-                    <fieldset>
-                        <legend>{this.state.edit ? "Edit" : "Create"}</legend>
-                        <label htmlFor="name">name</label>
-                        <input type="text" name="name" />
-                        <label htmlFor="weight">weight</label>
-                        <input type="number" name="weight" />
-                        <label htmlFor="height">height</label>
-                        <input type="number" name="height" />
-                        <label htmlFor="evolvesto">evolves to</label>
-                        <input type="text" name="evolvesto" />
-                        <label htmlFor="evolvesfrom">evolves from</label>
-                        <input type="text" name="evolvesfrom" />
-                        <label htmlFor="origin">origin</label>
-                        <input type="text" name="origin" />
-                        <input type="hidden" name="id" />
-                        <input type="submit" value={this.state.edit ? "Edit" : "Create"} />
-                    </fieldset>
-                </form>
+                    <form className="crud" onSubmit={this.handleSubmit}>
+                        <fieldset>
+                            <legend>{this.state.edit ? "Edit" : "Create"}</legend>
+                            <label htmlFor="name">name</label>
+                            <input type="text" name="name" />
+                            <label htmlFor="weight">weight</label>
+                            <input type="number" name="weight" />
+                            <label htmlFor="height">height</label>
+                            <input type="number" name="height" />
+                            <label htmlFor="evolvesto">evolves to</label>
+                            <input type="text" name="evolvesto" />
+                            <label htmlFor="evolvesfrom">evolves from</label>
+                            <input type="text" name="evolvesfrom" />
+                            <label htmlFor="origin">origin</label>
+                            <input type="text" name="origin" />
+                            <input type="hidden" name="id" />
+                            <input type="submit" value={this.state.edit ? "Edit" : "Create"} />
+                        </fieldset>
+                    </form>
+                </div>
 
             </main>
         );

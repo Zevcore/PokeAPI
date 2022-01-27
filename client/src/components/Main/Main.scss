@@ -14,54 +14,75 @@
 
   }
 
-  ul {
-    padding: 30px;
-    span {
-      font-size: 1.5rem;
-      color: #b8b8b8;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 300;
-    }
-    li {
-      font-size: 2rem;
-      color: #3d3d3d;
-      padding: 10px 0;
-    }
-  }
-
-  form {
-    padding: 30px;
-    width: 100%;
-    fieldset {
-      display: flex;
-      flex-direction: column;
-
-      legend {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    ul {
+      padding: 30px;
+      width: 50%;
+      span {
+        font-size: 1.5rem;
+        color: #b8b8b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 300;
+      }
+      li {
         font-size: 2rem;
         color: #3d3d3d;
-        font-weight: bold;
-      }
+        padding: 10px 0;
 
-      label {
-        font-size: 1.3rem;
-        color: #b8b8b8;
-        padding: 5px 0;
-      }
-      input {
-        padding: 5px 0;
-        width: 300px;
-        height: 25px;
-        border: 1px solid #b8b8b8;
-        background: none;
-        font-size: 1.4rem;
-      }
+        .box {
+          button {
+            font-size: 1.2rem;
+            background: transparent;
+            border: none;
 
-      input[type=submit] {
-        color: #fff;
-        background-color: #3d3d3d;
-        height: 40px;
-        margin: 15px 0 0 0;
+            &.edit {
+              color: orange;
+            }
+            &.delete {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+
+    form {
+      padding: 30px;
+      width: 50%;
+      fieldset {
+        display: flex;
+        flex-direction: column;
+
+        legend {
+          font-size: 2rem;
+          color: #3d3d3d;
+          font-weight: bold;
+        }
+
+        label {
+          font-size: 1.3rem;
+          color: #b8b8b8;
+          padding: 5px 0;
+        }
+        input {
+          padding: 5px 0;
+          width: 300px;
+          height: 25px;
+          border: 1px solid #b8b8b8;
+          background: none;
+          font-size: 1.4rem;
+        }
+
+        input[type=submit] {
+          color: #fff;
+          background-color: #3d3d3d;
+          height: 40px;
+          margin: 15px 0 0 0;
+        }
       }
     }
   }
