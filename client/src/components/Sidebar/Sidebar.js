@@ -3,6 +3,17 @@ import './Sidebar.scss';
 import logo from "./pokeball.png";
 
 class Sidebar extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        return;
+    }
+
     render() {
         return(
             <sidebar className="sidebar">
@@ -11,7 +22,7 @@ class Sidebar extends Component {
                         <h1>pokeAPI</h1>
                 </header>
                 <form>
-                    <input type="text" placeholder="search" />
+                    <input type="text" className="search" placeholder="search" />
                 </form>
                 <ul>
                     <p>APIs</p>

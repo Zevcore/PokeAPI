@@ -1,25 +1,27 @@
 import {Component} from 'react';
 import './Main.scss';
+import { update, store, index, destroy } from "../../actions/requests";
 
 class Main extends Component {
 
-    state = {
-        pokemons: []
+    constructor(props){
+        super(props);
+        this.state = {
+            pokemons: [],
+            edit: false,
+        }
+        this.deleteElement = this.deleteElement.bind(this);
+        this.fillUpdate = this.fillUpdate.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        const requestOptions = {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-        };
-
-        fetch("http://0.0.0.0:80/api/pokemons", requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ pokemons: data }));
+        const result = index().then(res => {
+            this.setState({pokemons: res})
+        });
     }
 
     handleSubmit(e) {
-        e.preventDefault();
 
         const formData = new URLSearchParams();
         formData.append('name', e.target.name.value);
@@ -30,22 +32,38 @@ class Main extends Component {
         formData.append('origin', e.target.origin.value);
 
 
-        // let data = {
-        //   name: e.target.name.value,
-        //   weight: e.target.weight.value,
-        //   evolvesto: e.target.evolvesto.value,
-        //   evolvesfrom: e.target.evolvesfrom.value,
-        //   origin: e.target.origin.value,
-        // };
-        //
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: formData.toString(),
-            json: true,
-        };
-        // console.log(requestOptions);
-        fetch("http://0.0.0.0:80/api/pokemons", requestOptions);
+        this.state.edit ? update(formData, e.target.id.value) : store(formData);
+        this.setState({edit:false});
+    }
+
+    fillUpdate(e) {
+        this.setState({edit: true})
+        let pokemons = this.state.pokemons;
+        let pokemon = pokemons.find(el => ((el.id).toString() === e.target.value));
+
+        let form = document.querySelector('.crud');
+        let fieldset = form.querySelector('fieldset');
+        let inputs = fieldset.querySelectorAll("input");
+
+
+        inputs[0].value = pokemon.name;
+        inputs[1].value = pokemon.weight;
+        inputs[2].value = pokemon.height;
+        inputs[3].value = pokemon.evolvesto;
+        inputs[4].value = pokemon.evolvesfrom;
+        inputs[5].value = pokemon.origin;
+        inputs[6].value = pokemon.id;
+    }
+
+    deleteElement(e) {
+        let pokemons = this.state.pokemons;
+        let pokemon = pokemons.find(el => ((el.id).toString() === e.target.value));
+        let stateId = pokemons.indexOf(pokemon);
+
+        destroy(e.target.value);
+
+        pokemons.splice(stateId, 1);
+        this.setState({pokemons: pokemons})
     }
 
     render() {
@@ -58,15 +76,20 @@ class Main extends Component {
 
                     {this.state.pokemons.length > 0 &&
                         this.state.pokemons.map((pokemon) => (
-                            <li key={pokemon.id}>{pokemon.name}</li>
+                            <li key={pokemon.id}>
+                                {pokemon.name}
+                                <button value={pokemon.id} onClick={this.deleteElement}>X</button>
+                                <button value={pokemon.id} onClick={this.fillUpdate}>E</button>
+
+                            </li>
                         ))
                     }
 
                 </ul>
 
-                <form onSubmit={this.handleSubmit}>
+                <form className="crud" onSubmit={this.handleSubmit}>
                     <fieldset>
-                        <legend>Create</legend>
+                        <legend>{this.state.edit ? "Edit" : "Create"}</legend>
                         <label htmlFor="name">name</label>
                         <input type="text" name="name" />
                         <label htmlFor="weight">weight</label>
@@ -79,7 +102,8 @@ class Main extends Component {
                         <input type="text" name="evolvesfrom" />
                         <label htmlFor="origin">origin</label>
                         <input type="text" name="origin" />
-                        <input type="submit" value="Dodaj" />
+                        <input type="hidden" name="id" />
+                        <input type="submit" value={this.state.edit ? "Edit" : "Create"} />
                     </fieldset>
                 </form>
 

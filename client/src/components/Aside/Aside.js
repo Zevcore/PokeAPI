@@ -7,9 +7,9 @@ class Aside extends Component {
             <aside className="aside">
                 <p>Response</p>
                 <section className="response">
-            <pre>
+                    <pre>
 
-            </pre>
+                    </pre>
                 </section>
             </aside>
         );
