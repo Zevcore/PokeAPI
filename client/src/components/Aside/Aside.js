@@ -1,9 +1,17 @@
 import {Component} from 'react';
+import './Aside.scss';
 
 class Aside extends Component {
     render() {
         return(
-          <h1>Aside</h1>
+            <aside className="aside">
+                <p>Response</p>
+                <section className="response">
+            <pre>
+
+            </pre>
+                </section>
+            </aside>
         );
     }
 }
